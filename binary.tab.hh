@@ -40,7 +40,7 @@
 #ifndef YY_YY_BINARY_TAB_HH_INCLUDED
 # define YY_YY_BINARY_TAB_HH_INCLUDED
 // //                    "%code requires" blocks.
-#line 18 "binary.yy" // lalr1.cc:377
+#line 20 "binary.yy" // lalr1.cc:377
 
   #include "Node.h"
 
@@ -270,8 +270,14 @@ namespace yy {
     {
       // stream
       // chunk
+      // laststat
       // block
       // stat
+      // funcbody
+      // parlist
+      // namelist
+      // funcname
+      // repeatStat
       // forStat
       // ifStat
       // elseifList
@@ -280,6 +286,9 @@ namespace yy {
       // args
       // explist
       // prefixexp
+      // tableconstructor
+      // fieldlist
+      // field
       // varlist
       // String
       // var
@@ -289,6 +298,8 @@ namespace yy {
       // circumflex
       // factor
       // number
+      // bool
+      // name
       char dummy1[sizeof(Node)];
 
       // PLUS
@@ -316,6 +327,23 @@ namespace yy {
       // THEN
       // MODULO
       // EQ
+      // CURLYO
+      // CURLYC
+      // BRACKETO
+      // BRACKETC
+      // LENGTHOP
+      // REPEAT
+      // UNTIL
+      // GREATER
+      // LESS
+      // FALSE
+      // TRUE
+      // FUNCTION
+      // COLON
+      // VARARG
+      // RETURN
+      // BREAK
+      // fieldsep
       char dummy2[sizeof(std::string)];
 };
 
@@ -361,7 +389,23 @@ namespace yy {
         ELSEIF = 279,
         THEN = 280,
         MODULO = 281,
-        EQ = 282
+        EQ = 282,
+        CURLYO = 283,
+        CURLYC = 284,
+        BRACKETO = 285,
+        BRACKETC = 286,
+        LENGTHOP = 287,
+        REPEAT = 288,
+        UNTIL = 289,
+        GREATER = 290,
+        LESS = 291,
+        FALSE = 292,
+        TRUE = 293,
+        FUNCTION = 294,
+        COLON = 295,
+        VARARG = 296,
+        RETURN = 297,
+        BREAK = 298
       };
     };
 
@@ -570,6 +614,70 @@ namespace yy {
     symbol_type
     make_EQ (const std::string& v);
 
+    static inline
+    symbol_type
+    make_CURLYO (const std::string& v);
+
+    static inline
+    symbol_type
+    make_CURLYC (const std::string& v);
+
+    static inline
+    symbol_type
+    make_BRACKETO (const std::string& v);
+
+    static inline
+    symbol_type
+    make_BRACKETC (const std::string& v);
+
+    static inline
+    symbol_type
+    make_LENGTHOP (const std::string& v);
+
+    static inline
+    symbol_type
+    make_REPEAT (const std::string& v);
+
+    static inline
+    symbol_type
+    make_UNTIL (const std::string& v);
+
+    static inline
+    symbol_type
+    make_GREATER (const std::string& v);
+
+    static inline
+    symbol_type
+    make_LESS (const std::string& v);
+
+    static inline
+    symbol_type
+    make_FALSE (const std::string& v);
+
+    static inline
+    symbol_type
+    make_TRUE (const std::string& v);
+
+    static inline
+    symbol_type
+    make_FUNCTION (const std::string& v);
+
+    static inline
+    symbol_type
+    make_COLON (const std::string& v);
+
+    static inline
+    symbol_type
+    make_VARARG (const std::string& v);
+
+    static inline
+    symbol_type
+    make_RETURN (const std::string& v);
+
+    static inline
+    symbol_type
+    make_BREAK (const std::string& v);
+
 
     /// Build a parser object.
     parser ();
@@ -644,17 +752,17 @@ namespace yy {
   static const unsigned char yydefact_[];
 
   // YYPGOTO[NTERM-NUM].
-  static const signed char yypgoto_[];
+  static const short int yypgoto_[];
 
   // YYDEFGOTO[NTERM-NUM].
-  static const signed char yydefgoto_[];
+  static const short int yydefgoto_[];
 
   // YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
   // positive, shift that token.  If negative, reduce the rule whose
   // number is the opposite.  If YYTABLE_NINF, syntax error.
-  static const signed char yytable_[];
+  static const short int yytable_[];
 
-  static const signed char yycheck_[];
+  static const short int yycheck_[];
 
   // YYSTOS[STATE-NUM] -- The (internal number of the) accessing
   // symbol of state STATE-NUM.
@@ -771,12 +879,12 @@ namespace yy {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 170,     ///< Last index in yytable_.
-      yynnts_ = 22,  ///< Number of nonterminal symbols.
-      yyfinal_ = 30, ///< Termination state number.
+      yylast_ = 455,     ///< Last index in yytable_.
+      yynnts_ = 34,  ///< Number of nonterminal symbols.
+      yyfinal_ = 49, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
-      yyntokens_ = 28  ///< Number of tokens.
+      yyntokens_ = 44  ///< Number of tokens.
     };
 
 
@@ -819,9 +927,10 @@ namespace yy {
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
        5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
       15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
-      25,    26,    27
+      25,    26,    27,    28,    29,    30,    31,    32,    33,    34,
+      35,    36,    37,    38,    39,    40,    41,    42,    43
     };
-    const unsigned int user_token_number_max_ = 282;
+    const unsigned int user_token_number_max_ = 298;
     const token_number_type undef_token_ = 2;
 
     if (static_cast<int>(t) <= yyeof_)
@@ -852,27 +961,38 @@ namespace yy {
   {
       switch (other.type_get ())
     {
-      case 29: // stream
-      case 30: // chunk
-      case 31: // block
-      case 32: // stat
-      case 33: // forStat
-      case 34: // ifStat
-      case 35: // elseifList
-      case 36: // elseBlock
-      case 37: // functioncall
-      case 38: // args
-      case 39: // explist
-      case 40: // prefixexp
-      case 41: // varlist
-      case 42: // String
-      case 43: // var
-      case 44: // exp
-      case 45: // expression
-      case 46: // term
-      case 47: // circumflex
-      case 48: // factor
-      case 49: // number
+      case 45: // stream
+      case 46: // chunk
+      case 47: // laststat
+      case 48: // block
+      case 49: // stat
+      case 50: // funcbody
+      case 51: // parlist
+      case 52: // namelist
+      case 53: // funcname
+      case 54: // repeatStat
+      case 55: // forStat
+      case 56: // ifStat
+      case 57: // elseifList
+      case 58: // elseBlock
+      case 59: // functioncall
+      case 60: // args
+      case 61: // explist
+      case 62: // prefixexp
+      case 63: // tableconstructor
+      case 64: // fieldlist
+      case 66: // field
+      case 67: // varlist
+      case 68: // String
+      case 69: // var
+      case 70: // exp
+      case 71: // expression
+      case 72: // term
+      case 73: // circumflex
+      case 74: // factor
+      case 75: // number
+      case 76: // bool
+      case 77: // name
         value.copy< Node > (other.value);
         break;
 
@@ -901,6 +1021,23 @@ namespace yy {
       case 25: // THEN
       case 26: // MODULO
       case 27: // EQ
+      case 28: // CURLYO
+      case 29: // CURLYC
+      case 30: // BRACKETO
+      case 31: // BRACKETC
+      case 32: // LENGTHOP
+      case 33: // REPEAT
+      case 34: // UNTIL
+      case 35: // GREATER
+      case 36: // LESS
+      case 37: // FALSE
+      case 38: // TRUE
+      case 39: // FUNCTION
+      case 40: // COLON
+      case 41: // VARARG
+      case 42: // RETURN
+      case 43: // BREAK
+      case 65: // fieldsep
         value.copy< std::string > (other.value);
         break;
 
@@ -920,27 +1057,38 @@ namespace yy {
     (void) v;
       switch (this->type_get ())
     {
-      case 29: // stream
-      case 30: // chunk
-      case 31: // block
-      case 32: // stat
-      case 33: // forStat
-      case 34: // ifStat
-      case 35: // elseifList
-      case 36: // elseBlock
-      case 37: // functioncall
-      case 38: // args
-      case 39: // explist
-      case 40: // prefixexp
-      case 41: // varlist
-      case 42: // String
-      case 43: // var
-      case 44: // exp
-      case 45: // expression
-      case 46: // term
-      case 47: // circumflex
-      case 48: // factor
-      case 49: // number
+      case 45: // stream
+      case 46: // chunk
+      case 47: // laststat
+      case 48: // block
+      case 49: // stat
+      case 50: // funcbody
+      case 51: // parlist
+      case 52: // namelist
+      case 53: // funcname
+      case 54: // repeatStat
+      case 55: // forStat
+      case 56: // ifStat
+      case 57: // elseifList
+      case 58: // elseBlock
+      case 59: // functioncall
+      case 60: // args
+      case 61: // explist
+      case 62: // prefixexp
+      case 63: // tableconstructor
+      case 64: // fieldlist
+      case 66: // field
+      case 67: // varlist
+      case 68: // String
+      case 69: // var
+      case 70: // exp
+      case 71: // expression
+      case 72: // term
+      case 73: // circumflex
+      case 74: // factor
+      case 75: // number
+      case 76: // bool
+      case 77: // name
         value.copy< Node > (v);
         break;
 
@@ -969,6 +1117,23 @@ namespace yy {
       case 25: // THEN
       case 26: // MODULO
       case 27: // EQ
+      case 28: // CURLYO
+      case 29: // CURLYC
+      case 30: // BRACKETO
+      case 31: // BRACKETC
+      case 32: // LENGTHOP
+      case 33: // REPEAT
+      case 34: // UNTIL
+      case 35: // GREATER
+      case 36: // LESS
+      case 37: // FALSE
+      case 38: // TRUE
+      case 39: // FUNCTION
+      case 40: // COLON
+      case 41: // VARARG
+      case 42: // RETURN
+      case 43: // BREAK
+      case 65: // fieldsep
         value.copy< std::string > (v);
         break;
 
@@ -1024,27 +1189,38 @@ namespace yy {
     // Type destructor.
     switch (yytype)
     {
-      case 29: // stream
-      case 30: // chunk
-      case 31: // block
-      case 32: // stat
-      case 33: // forStat
-      case 34: // ifStat
-      case 35: // elseifList
-      case 36: // elseBlock
-      case 37: // functioncall
-      case 38: // args
-      case 39: // explist
-      case 40: // prefixexp
-      case 41: // varlist
-      case 42: // String
-      case 43: // var
-      case 44: // exp
-      case 45: // expression
-      case 46: // term
-      case 47: // circumflex
-      case 48: // factor
-      case 49: // number
+      case 45: // stream
+      case 46: // chunk
+      case 47: // laststat
+      case 48: // block
+      case 49: // stat
+      case 50: // funcbody
+      case 51: // parlist
+      case 52: // namelist
+      case 53: // funcname
+      case 54: // repeatStat
+      case 55: // forStat
+      case 56: // ifStat
+      case 57: // elseifList
+      case 58: // elseBlock
+      case 59: // functioncall
+      case 60: // args
+      case 61: // explist
+      case 62: // prefixexp
+      case 63: // tableconstructor
+      case 64: // fieldlist
+      case 66: // field
+      case 67: // varlist
+      case 68: // String
+      case 69: // var
+      case 70: // exp
+      case 71: // expression
+      case 72: // term
+      case 73: // circumflex
+      case 74: // factor
+      case 75: // number
+      case 76: // bool
+      case 77: // name
         value.template destroy< Node > ();
         break;
 
@@ -1073,6 +1249,23 @@ namespace yy {
       case 25: // THEN
       case 26: // MODULO
       case 27: // EQ
+      case 28: // CURLYO
+      case 29: // CURLYC
+      case 30: // BRACKETO
+      case 31: // BRACKETC
+      case 32: // LENGTHOP
+      case 33: // REPEAT
+      case 34: // UNTIL
+      case 35: // GREATER
+      case 36: // LESS
+      case 37: // FALSE
+      case 38: // TRUE
+      case 39: // FUNCTION
+      case 40: // COLON
+      case 41: // VARARG
+      case 42: // RETURN
+      case 43: // BREAK
+      case 65: // fieldsep
         value.template destroy< std::string > ();
         break;
 
@@ -1099,27 +1292,38 @@ namespace yy {
     super_type::move(s);
       switch (this->type_get ())
     {
-      case 29: // stream
-      case 30: // chunk
-      case 31: // block
-      case 32: // stat
-      case 33: // forStat
-      case 34: // ifStat
-      case 35: // elseifList
-      case 36: // elseBlock
-      case 37: // functioncall
-      case 38: // args
-      case 39: // explist
-      case 40: // prefixexp
-      case 41: // varlist
-      case 42: // String
-      case 43: // var
-      case 44: // exp
-      case 45: // expression
-      case 46: // term
-      case 47: // circumflex
-      case 48: // factor
-      case 49: // number
+      case 45: // stream
+      case 46: // chunk
+      case 47: // laststat
+      case 48: // block
+      case 49: // stat
+      case 50: // funcbody
+      case 51: // parlist
+      case 52: // namelist
+      case 53: // funcname
+      case 54: // repeatStat
+      case 55: // forStat
+      case 56: // ifStat
+      case 57: // elseifList
+      case 58: // elseBlock
+      case 59: // functioncall
+      case 60: // args
+      case 61: // explist
+      case 62: // prefixexp
+      case 63: // tableconstructor
+      case 64: // fieldlist
+      case 66: // field
+      case 67: // varlist
+      case 68: // String
+      case 69: // var
+      case 70: // exp
+      case 71: // expression
+      case 72: // term
+      case 73: // circumflex
+      case 74: // factor
+      case 75: // number
+      case 76: // bool
+      case 77: // name
         value.move< Node > (s.value);
         break;
 
@@ -1148,6 +1352,23 @@ namespace yy {
       case 25: // THEN
       case 26: // MODULO
       case 27: // EQ
+      case 28: // CURLYO
+      case 29: // CURLYC
+      case 30: // BRACKETO
+      case 31: // BRACKETC
+      case 32: // LENGTHOP
+      case 33: // REPEAT
+      case 34: // UNTIL
+      case 35: // GREATER
+      case 36: // LESS
+      case 37: // FALSE
+      case 38: // TRUE
+      case 39: // FUNCTION
+      case 40: // COLON
+      case 41: // VARARG
+      case 42: // RETURN
+      case 43: // BREAK
+      case 65: // fieldsep
         value.move< std::string > (s.value);
         break;
 
@@ -1207,7 +1428,9 @@ namespace yy {
     {
        0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
      265,   266,   267,   268,   269,   270,   271,   272,   273,   274,
-     275,   276,   277,   278,   279,   280,   281,   282
+     275,   276,   277,   278,   279,   280,   281,   282,   283,   284,
+     285,   286,   287,   288,   289,   290,   291,   292,   293,   294,
+     295,   296,   297,   298
     };
     return static_cast<token_type> (yytoken_number_[type]);
   }
@@ -1368,10 +1591,106 @@ namespace yy {
     return symbol_type (token::EQ, v);
   }
 
+  parser::symbol_type
+  parser::make_CURLYO (const std::string& v)
+  {
+    return symbol_type (token::CURLYO, v);
+  }
+
+  parser::symbol_type
+  parser::make_CURLYC (const std::string& v)
+  {
+    return symbol_type (token::CURLYC, v);
+  }
+
+  parser::symbol_type
+  parser::make_BRACKETO (const std::string& v)
+  {
+    return symbol_type (token::BRACKETO, v);
+  }
+
+  parser::symbol_type
+  parser::make_BRACKETC (const std::string& v)
+  {
+    return symbol_type (token::BRACKETC, v);
+  }
+
+  parser::symbol_type
+  parser::make_LENGTHOP (const std::string& v)
+  {
+    return symbol_type (token::LENGTHOP, v);
+  }
+
+  parser::symbol_type
+  parser::make_REPEAT (const std::string& v)
+  {
+    return symbol_type (token::REPEAT, v);
+  }
+
+  parser::symbol_type
+  parser::make_UNTIL (const std::string& v)
+  {
+    return symbol_type (token::UNTIL, v);
+  }
+
+  parser::symbol_type
+  parser::make_GREATER (const std::string& v)
+  {
+    return symbol_type (token::GREATER, v);
+  }
+
+  parser::symbol_type
+  parser::make_LESS (const std::string& v)
+  {
+    return symbol_type (token::LESS, v);
+  }
+
+  parser::symbol_type
+  parser::make_FALSE (const std::string& v)
+  {
+    return symbol_type (token::FALSE, v);
+  }
+
+  parser::symbol_type
+  parser::make_TRUE (const std::string& v)
+  {
+    return symbol_type (token::TRUE, v);
+  }
+
+  parser::symbol_type
+  parser::make_FUNCTION (const std::string& v)
+  {
+    return symbol_type (token::FUNCTION, v);
+  }
+
+  parser::symbol_type
+  parser::make_COLON (const std::string& v)
+  {
+    return symbol_type (token::COLON, v);
+  }
+
+  parser::symbol_type
+  parser::make_VARARG (const std::string& v)
+  {
+    return symbol_type (token::VARARG, v);
+  }
+
+  parser::symbol_type
+  parser::make_RETURN (const std::string& v)
+  {
+    return symbol_type (token::RETURN, v);
+  }
+
+  parser::symbol_type
+  parser::make_BREAK (const std::string& v)
+  {
+    return symbol_type (token::BREAK, v);
+  }
+
 
 
 } // yy
-#line 1375 "binary.tab.hh" // lalr1.cc:377
+#line 1694 "binary.tab.hh" // lalr1.cc:377
 
 
 

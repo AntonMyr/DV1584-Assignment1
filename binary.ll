@@ -39,13 +39,32 @@ DQUOTE (\"(\\.|[^"\\])*\")
   std::cout << "ELSEIF: " << yytext << std::endl;
   return yy::parser::make_ELSEIF(yytext);}
 "else" { 
+  std::cout << "ELSE: " << yytext << std::endl;
   return yy::parser::make_ELSE(yytext);}
 "then" { 
   std::cout << "THEN: " << yytext << std::endl;
   return yy::parser::make_THEN(yytext);}
-{NAME}* { 
-  std::cout << "Name: " << yytext << std::endl;
-  return yy::parser::make_Name(yytext);}
+"repeat" { 
+  std::cout << "REPEAT: " << yytext << std::endl;
+  return yy::parser::make_REPEAT(yytext);}
+"until" { 
+  std::cout << "UNTIL: " << yytext << std::endl;
+  return yy::parser::make_UNTIL(yytext);}
+"false" { 
+  std::cout << "FALSE: " << yytext << std::endl;
+  return yy::parser::make_FALSE(yytext);}
+"true" { 
+  std::cout << "TRUE: " << yytext << std::endl;
+  return yy::parser::make_TRUE(yytext);}
+"function" { 
+  std::cout << "FUNCTION: " << yytext << std::endl;
+  return yy::parser::make_FUNCTION(yytext);}
+"return" { 
+  std::cout << "RETURN: " << yytext << std::endl;
+  return yy::parser::make_RETURN(yytext);}
+"break" { 
+  std::cout << "BREAK: " << yytext << std::endl;
+  return yy::parser::make_BREAK(yytext);}
 [0-9]+ { 
   std::cout << "INTEGER: " << yytext << std::endl;
   return yy::parser::make_INTEGER(yytext);}
@@ -64,20 +83,51 @@ DQUOTE (\"(\\.|[^"\\])*\")
   return yy::parser::make_CLOSEP(yytext);}
 "," { return yy::parser::make_COMMA(yytext);}
 "^" { return yy::parser::make_CIRCUMFLEX(yytext);}
-"==" { 
+([=]=|=[=]) { 
   std::cout << "EQ: " << yytext << std::endl;
   return yy::parser::make_EQ(yytext);}
 "=" { 
   std::cout << "EQUALS: " << yytext << std::endl;
   return yy::parser::make_EQUALS(yytext);}
 ";" { return yy::parser::make_SEMI(yytext);}
+":" { return yy::parser::make_COLON(yytext);}
+"..." { return yy::parser::make_VARARG(yytext);}
 "%" { 
   std::cout << "MODULO: " << yytext << std::endl;
   return yy::parser::make_MODULO(yytext);}
+"{" {
+  return yy::parser::make_CURLYO(yytext);
+}
+"}" {
+  return yy::parser::make_CURLYC(yytext);
+}
+"[" {
+  return yy::parser::make_BRACKETO(yytext);
+}
+"]" {
+  return yy::parser::make_BRACKETC(yytext);
+}
+"#" {
+  std::cout << "LENGTHOP: " << yytext << std::endl;
+  return yy::parser::make_LENGTHOP(yytext);
+}
+">" {
+  std::cout << "GREATER: " << yytext << std::endl;
+  return yy::parser::make_GREATER(yytext);
+}
+"<" {
+  std::cout << "LESS: " << yytext << std::endl;
+  return yy::parser::make_LESS(yytext);
+}
 "." { 
   
   std::cout << "DOT: " << yytext << std::endl;
   return yy::parser::make_DOT(yytext);}
+
+ /* "*/
+{NAME}* { 
+  std::cout << "Name: " << yytext << std::endl;
+  return yy::parser::make_Name(yytext);}
 
   /*"\n"  { return yy::parser::make_NEWL(yytext);}*/ 
   /*

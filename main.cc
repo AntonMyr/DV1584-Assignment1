@@ -11,11 +11,17 @@ void yy::parser::error(std::string const&err)
 
 int main(int argc, char **argv)
 {
+  std::ifstream t(argv[1]);
+  std::stringstream buffer;
+  buffer << "label=<";
+  buffer << t.rdbuf();
+  buffer << ">;labelloc = \"t\"\n";
   yy::parser parser;
   if(!parser.parse()) {
     std::cout << "Built a parse-tree:" << std::endl;
     root.dump();
     std::string graphString = "digraph {\n";
+    graphString += buffer.str();
     int id = 0;
     root.dumpToGraph(graphString, id);
     graphString += "\n}";

@@ -11,6 +11,8 @@
   Node root;
   Node expListTemp;
   Node varListTemp;
+  Node fieldListTemp;
+  Node namelistTemp;
   Node elseifTemp;
   Node chunkTemp;
 }
@@ -40,6 +42,18 @@
 %type <Node> ifStat
 %type <Node> elseifList
 %type <Node> elseBlock
+%type <Node> field
+%type <Node> fieldlist
+%type <Node> tableconstructor
+%type <Node> repeatStat
+%type <Node> bool
+%type <Node> funcbody
+%type <Node> parlist
+%type <Node> namelist
+%type <Node> funcname
+%type <Node> name
+%type <Node> laststat
+%type <std::string> fieldsep
 
 %token <std::string> PLUS
 %token <std::string> EQUALS
@@ -66,6 +80,22 @@
 %token <std::string> THEN
 %token <std::string> MODULO
 %token <std::string> EQ
+%token <std::string> CURLYO
+%token <std::string> CURLYC
+%token <std::string> BRACKETO
+%token <std::string> BRACKETC
+%token <std::string> LENGTHOP
+%token <std::string> REPEAT
+%token <std::string> UNTIL
+%token <std::string> GREATER
+%token <std::string> LESS
+%token <std::string> FALSE
+%token <std::string> TRUE
+%token <std::string> FUNCTION
+%token <std::string> COLON
+%token <std::string> VARARG
+%token <std::string> RETURN
+%token <std::string> BREAK
 %token ENDF 0 "end of file"
 %%
 
@@ -85,20 +115,32 @@ stream: chunk {
 }
 ;
 
-/* stream: chunk { 
-  $$ = Node("stream", ""); 
-  $$.children.push_back($1); 
-  root = $$;
-  }
-  ; */
-
 chunk: stat { 
   $$ = $1;
   }
-  | stat SEMI {
+  | chunk laststat {
+    $$ = $1;
+    $$.children.push_back($2);
+  }
+  | laststat {
+    $$ = $1;
+  }
+  | chunk SEMI {
     $$ = $1;
   }
   ;
+
+laststat: RETURN {
+  $$ = Node("return", "");
+}
+| RETURN explist {
+  $$ = Node("return", "");
+  $$.children.push_back($2);
+}
+| BREAK {
+  $$ = Node("break", "");
+}
+;
 
 block: chunk {
   $$ = Node("block", "");
@@ -125,21 +167,78 @@ stat: varlist EQUALS explist {
   }
   | ifStat {
     $$ = $1;
+  } 
+  | repeatStat {
+    $$ = $1;
+  } 
+  | FUNCTION funcname funcbody {
+    $$ = Node("function", "");
+    $$.children.push_back($2);
+    $$.children.push_back($3);
   }
   ; 
-forStat: FOR Name EQUALS exp COMMA exp DO block END {
+
+funcbody: OPENP CLOSEP block END {
+  $$ = Node("funcbody", "");
+  $$.children.push_back($3);
+}
+| OPENP parlist CLOSEP block END {
+  $$ = Node("funcbody", "");
+  $$.children.push_back($2);
+  $$.children.push_back($4);
+}
+;
+
+parlist: namelist {
+  $$ = $1;
+} | namelist COMMA VARARG {
+  $$ = Node("parlist", $3);
+  $$.children.push_back($1);
+} | VARARG {
+  $$ = Node("parlist", $1);
+};
+
+namelist: name {
+  $$ = $1;
+  namelistTemp = $$;
+} 
+| namelist COMMA name {
+  $$ = namelistTemp;
+  $$.children.push_back($3);
+  namelistTemp = $$;
+}
+
+funcname: name {
+  $$ = $1; 
+} | funcname DOT name {
+  $$ = Node("funcname", "");
+  $$.children.push_back($3);
+} | funcname COLON name {
+  $$ = $1;
+  $$.children.push_back($3);
+}
+;
+
+repeatStat: REPEAT block UNTIL exp {
+  $$ = Node("repeat", "");
+  $$.children.push_back($2);
+  $$.children.push_back($4);
+}
+;
+
+forStat: FOR name EQUALS exp COMMA exp DO block END {
   $$ = Node("for", "");
   Node assignmentNode = Node("assignment", $3);
-  assignmentNode.children.push_back(Node("var", $2));
+  assignmentNode.children.push_back($2);
   assignmentNode.children.push_back($4);
   $$.children.push_back(assignmentNode);
   $$.children.push_back($6);
   $$.children.push_back($8);
 }
-| FOR Name EQUALS exp COMMA exp COMMA exp DO block END {
+| FOR name EQUALS exp COMMA exp COMMA exp DO block END {
   $$ = Node("for", "");
   Node assignmentNode = Node("assignment", $3);
-  assignmentNode.children.push_back(Node("var", $2));
+  assignmentNode.children.push_back($2);
   assignmentNode.children.push_back($4);
   $$.children.push_back(assignmentNode);
   $$.children.push_back($6);
@@ -217,6 +316,7 @@ explist: exp {
     expListTemp = $$;
   }
   | explist COMMA exp {
+  std::cout << "->>Here: " << $3.value << std::endl;
       $$ = expListTemp;
       $$.children.push_back($3);
       expListTemp = $$;
@@ -229,6 +329,50 @@ prefixexp: var {
   | OPENP exp CLOSEP {
     $$ = $2;
   }
+  | functioncall {
+    $$ = $1;
+  }
+;
+
+tableconstructor: CURLYO CURLYC {
+  $$ = Node("tableconstructor", "");
+}
+| CURLYO fieldlist CURLYC {
+  $$ = $2;
+}
+;
+
+fieldlist: field {
+  $$ = Node("fieldlist", "");
+  $$.children.push_back($1);
+  fieldListTemp = $$;
+}
+| fieldlist fieldsep field {
+  $$ = fieldListTemp;
+  $$.children.push_back($3);
+  fieldListTemp = $$;
+
+} 
+| fieldlist fieldsep {
+  $$ = fieldListTemp;
+  $$.children.push_back($1);
+  fieldListTemp = $$;
+}
+;
+
+fieldsep: COMMA | SEMI;
+
+field: BRACKETO exp BRACKETC EQUALS exp {
+  $$ = Node("assignment", $4);
+  $$.children.push_back($2);
+  $$.children.push_back($5);
+} | name EQUALS exp {
+  $$ = Node("assignment", $2);
+  $$.children.push_back($1);
+  $$.children.push_back($3);
+} | exp {
+  $$ = $1;
+}
 ;
 
 varlist: var {
@@ -248,11 +392,16 @@ String: STRING {
   }
   ;
 
-var: Name { 
-  $$ = Node("var", $1);
+var: name { 
+  $$ = $1;
   }
-  | prefixexp DOT var {
+  | prefixexp DOT name {
     $$ = Node("var", $2);
+    $$.children.push_back($1);
+    $$.children.push_back($3);
+  }
+  | prefixexp BRACKETO exp BRACKETC {
+    $$ = Node("index", "");
     $$.children.push_back($1);
     $$.children.push_back($3);
   }
@@ -267,7 +416,25 @@ exp: expression {
   | prefixexp {
     $$ = $1;
   }
-  | functioncall {
+  | tableconstructor {
+    $$ = $1;
+  } 
+  | exp EQ exp {
+    $$ = Node("binop", $2); 
+    $$.children.push_back($1); 
+    $$.children.push_back($3);
+  }
+  | exp GREATER exp {
+    $$ = Node("binop", $2); 
+    $$.children.push_back($1); 
+    $$.children.push_back($3);
+  }
+  | exp LESS exp {
+    $$ = Node("binop", $2); 
+    $$.children.push_back($1); 
+    $$.children.push_back($3);
+  }
+  | bool {
     $$ = $1;
   }
   ;
@@ -278,11 +445,6 @@ expression: expression PLUS term {
     $$.children.push_back($3);
   }
   | expression MINUS term {
-    $$ = Node("binop", $2); 
-    $$.children.push_back($1); 
-    $$.children.push_back($3);
-  }
-  | expression EQ term {
     $$ = Node("binop", $2); 
     $$.children.push_back($1); 
     $$.children.push_back($3);
@@ -330,11 +492,27 @@ factor: prefixexp{
     $$ = Node("unary", $1); 
     $$.children.push_back($2);
   }
+  | LENGTHOP name {
+    $$ = Node("unary", $1);
+    $$.children.push_back($2);
+  }
   | number { $$ = $1;};
 ;
 
 number : INTEGER { $$ = Node("int", $1);}
   | FLOAT { $$ = Node("float", $1);}
   ;
+
+bool: TRUE {
+  $$ = Node("boolean", $1);
+} 
+| FALSE {
+  $$ = Node("boolean", $1);
+}
+;
+
+name: Name {
+  $$ = Node("name", $1);
+};
 
 %%

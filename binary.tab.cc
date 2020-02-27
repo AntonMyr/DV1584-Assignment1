@@ -714,7 +714,7 @@ namespace yy {
     break;
 
   case 4:
-#line 125 "binary.yy" // lalr1.cc:859
+#line 118 "binary.yy" // lalr1.cc:859
     { 
   yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();
   }
@@ -722,7 +722,7 @@ namespace yy {
     break;
 
   case 5:
-#line 128 "binary.yy" // lalr1.cc:859
+#line 121 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = yystack_[1].value.as< Node > ();
     yylhs.value.as< Node > ().children.push_back(yystack_[0].value.as< Node > ());
@@ -731,7 +731,7 @@ namespace yy {
     break;
 
   case 6:
-#line 132 "binary.yy" // lalr1.cc:859
+#line 125 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();
   }
@@ -739,7 +739,7 @@ namespace yy {
     break;
 
   case 7:
-#line 135 "binary.yy" // lalr1.cc:859
+#line 128 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = yystack_[1].value.as< Node > ();
   }
@@ -747,7 +747,7 @@ namespace yy {
     break;
 
   case 8:
-#line 140 "binary.yy" // lalr1.cc:859
+#line 133 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("return", "");
 }
@@ -755,7 +755,7 @@ namespace yy {
     break;
 
   case 9:
-#line 143 "binary.yy" // lalr1.cc:859
+#line 136 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("return", "");
   yylhs.value.as< Node > ().children.push_back(yystack_[0].value.as< Node > ());
@@ -764,7 +764,7 @@ namespace yy {
     break;
 
   case 10:
-#line 147 "binary.yy" // lalr1.cc:859
+#line 140 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("break", "");
 }
@@ -772,7 +772,7 @@ namespace yy {
     break;
 
   case 11:
-#line 152 "binary.yy" // lalr1.cc:859
+#line 145 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("block", "");
   yylhs.value.as< Node > ().children.push_back(yystack_[0].value.as< Node > ());
@@ -782,7 +782,7 @@ namespace yy {
     break;
 
   case 12:
-#line 157 "binary.yy" // lalr1.cc:859
+#line 150 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = chunkTemp;
   yylhs.value.as< Node > ().children.push_back(yystack_[0].value.as< Node > ());
@@ -792,7 +792,7 @@ namespace yy {
     break;
 
   case 13:
-#line 164 "binary.yy" // lalr1.cc:859
+#line 157 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = Node("assignment", yystack_[1].value.as< std::string > ());
     yylhs.value.as< Node > ().children.push_back(yystack_[2].value.as< Node > ());
@@ -802,7 +802,7 @@ namespace yy {
     break;
 
   case 14:
-#line 169 "binary.yy" // lalr1.cc:859
+#line 162 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();
   }
@@ -810,7 +810,7 @@ namespace yy {
     break;
 
   case 15:
-#line 172 "binary.yy" // lalr1.cc:859
+#line 165 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();
   }
@@ -818,7 +818,7 @@ namespace yy {
     break;
 
   case 16:
-#line 175 "binary.yy" // lalr1.cc:859
+#line 168 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();
   }
@@ -826,7 +826,7 @@ namespace yy {
     break;
 
   case 17:
-#line 178 "binary.yy" // lalr1.cc:859
+#line 171 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();
   }
@@ -834,7 +834,7 @@ namespace yy {
     break;
 
   case 18:
-#line 181 "binary.yy" // lalr1.cc:859
+#line 174 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = Node("function", "");
     yylhs.value.as< Node > ().children.push_back(yystack_[1].value.as< Node > ());
@@ -844,7 +844,7 @@ namespace yy {
     break;
 
   case 19:
-#line 188 "binary.yy" // lalr1.cc:859
+#line 181 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("funcbody", "");
   yylhs.value.as< Node > ().children.push_back(yystack_[1].value.as< Node > ());
@@ -853,7 +853,7 @@ namespace yy {
     break;
 
   case 20:
-#line 192 "binary.yy" // lalr1.cc:859
+#line 185 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("funcbody", "");
   yylhs.value.as< Node > ().children.push_back(yystack_[3].value.as< Node > ());
@@ -863,7 +863,7 @@ namespace yy {
     break;
 
   case 21:
-#line 199 "binary.yy" // lalr1.cc:859
+#line 192 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();
 }
@@ -871,7 +871,7 @@ namespace yy {
     break;
 
   case 22:
-#line 202 "binary.yy" // lalr1.cc:859
+#line 194 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("parlist", yystack_[0].value.as< std::string > ());
   yylhs.value.as< Node > ().children.push_back(yystack_[2].value.as< Node > ());
@@ -880,7 +880,7 @@ namespace yy {
     break;
 
   case 23:
-#line 206 "binary.yy" // lalr1.cc:859
+#line 197 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("parlist", yystack_[0].value.as< std::string > ());
 }
@@ -888,7 +888,7 @@ namespace yy {
     break;
 
   case 24:
-#line 211 "binary.yy" // lalr1.cc:859
+#line 201 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();
   namelistTemp = yylhs.value.as< Node > ();
@@ -897,7 +897,7 @@ namespace yy {
     break;
 
   case 25:
-#line 215 "binary.yy" // lalr1.cc:859
+#line 205 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = namelistTemp;
   yylhs.value.as< Node > ().children.push_back(yystack_[0].value.as< Node > ());
@@ -907,7 +907,7 @@ namespace yy {
     break;
 
   case 26:
-#line 221 "binary.yy" // lalr1.cc:859
+#line 211 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = yystack_[0].value.as< Node > (); 
 }
@@ -915,7 +915,7 @@ namespace yy {
     break;
 
   case 27:
-#line 224 "binary.yy" // lalr1.cc:859
+#line 213 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("funcname", "");
   yylhs.value.as< Node > ().children.push_back(yystack_[0].value.as< Node > ());
@@ -924,7 +924,7 @@ namespace yy {
     break;
 
   case 28:
-#line 228 "binary.yy" // lalr1.cc:859
+#line 216 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = yystack_[2].value.as< Node > ();
   yylhs.value.as< Node > ().children.push_back(yystack_[0].value.as< Node > ());
@@ -933,7 +933,7 @@ namespace yy {
     break;
 
   case 29:
-#line 234 "binary.yy" // lalr1.cc:859
+#line 222 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("repeat", "");
   yylhs.value.as< Node > ().children.push_back(yystack_[2].value.as< Node > ());
@@ -943,7 +943,7 @@ namespace yy {
     break;
 
   case 30:
-#line 241 "binary.yy" // lalr1.cc:859
+#line 229 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("for", "");
   Node assignmentNode = Node("assignment", yystack_[6].value.as< std::string > ());
@@ -957,7 +957,7 @@ namespace yy {
     break;
 
   case 31:
-#line 250 "binary.yy" // lalr1.cc:859
+#line 238 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("for", "");
   Node assignmentNode = Node("assignment", yystack_[8].value.as< std::string > ());
@@ -972,7 +972,7 @@ namespace yy {
     break;
 
   case 32:
-#line 263 "binary.yy" // lalr1.cc:859
+#line 251 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("if", "");
   yylhs.value.as< Node > ().children.push_back(yystack_[3].value.as< Node > ());
@@ -982,7 +982,7 @@ namespace yy {
     break;
 
   case 33:
-#line 268 "binary.yy" // lalr1.cc:859
+#line 256 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("if", "");
   yylhs.value.as< Node > ().children.push_back(yystack_[4].value.as< Node > ());
@@ -993,7 +993,7 @@ namespace yy {
     break;
 
   case 34:
-#line 274 "binary.yy" // lalr1.cc:859
+#line 262 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("if", "");
   yylhs.value.as< Node > ().children.push_back(yystack_[5].value.as< Node > ());
@@ -1005,7 +1005,7 @@ namespace yy {
     break;
 
   case 35:
-#line 281 "binary.yy" // lalr1.cc:859
+#line 269 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("if", "");
   yylhs.value.as< Node > ().children.push_back(yystack_[4].value.as< Node > ());
@@ -1016,7 +1016,7 @@ namespace yy {
     break;
 
   case 36:
-#line 289 "binary.yy" // lalr1.cc:859
+#line 277 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("elseif", "");
   yylhs.value.as< Node > ().children.push_back(yystack_[2].value.as< Node > ());
@@ -1026,7 +1026,7 @@ namespace yy {
     break;
 
   case 37:
-#line 294 "binary.yy" // lalr1.cc:859
+#line 282 "binary.yy" // lalr1.cc:859
     {
   // Sätt in en temp variabel
   yylhs.value.as< Node > () = yystack_[4].value.as< Node > ();
@@ -1037,7 +1037,7 @@ namespace yy {
     break;
 
   case 38:
-#line 302 "binary.yy" // lalr1.cc:859
+#line 290 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("else", "");
   yylhs.value.as< Node > ().children.push_back(yystack_[0].value.as< Node > ());
@@ -1046,7 +1046,7 @@ namespace yy {
     break;
 
   case 39:
-#line 308 "binary.yy" // lalr1.cc:859
+#line 296 "binary.yy" // lalr1.cc:859
     { 
   yylhs.value.as< Node > () = Node("functioncall", "");
   yylhs.value.as< Node > ().children.push_back(yystack_[1].value.as< Node > ());
@@ -1056,7 +1056,7 @@ namespace yy {
     break;
 
   case 40:
-#line 315 "binary.yy" // lalr1.cc:859
+#line 303 "binary.yy" // lalr1.cc:859
     { 
   yylhs.value.as< Node > () = Node("args", ""); 
   yylhs.value.as< Node > ().children.push_back(yystack_[1].value.as< Node > ());
@@ -1065,7 +1065,7 @@ namespace yy {
     break;
 
   case 41:
-#line 319 "binary.yy" // lalr1.cc:859
+#line 307 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = Node("args", "");
     yylhs.value.as< Node > ().children.push_back(yystack_[0].value.as< Node > ());
@@ -1074,7 +1074,7 @@ namespace yy {
     break;
 
   case 42:
-#line 325 "binary.yy" // lalr1.cc:859
+#line 313 "binary.yy" // lalr1.cc:859
     { 
     yylhs.value.as< Node > () = Node("explist", ""); 
     yylhs.value.as< Node > ().children.push_back(yystack_[0].value.as< Node > ()); 
@@ -1084,7 +1084,7 @@ namespace yy {
     break;
 
   case 43:
-#line 330 "binary.yy" // lalr1.cc:859
+#line 318 "binary.yy" // lalr1.cc:859
     {
   std::cout << "->>Here: " << yystack_[0].value.as< Node > ().value << std::endl;
       yylhs.value.as< Node > () = expListTemp;
@@ -1095,7 +1095,7 @@ namespace yy {
     break;
 
   case 44:
-#line 338 "binary.yy" // lalr1.cc:859
+#line 326 "binary.yy" // lalr1.cc:859
     { 
   yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();
   }
@@ -1103,7 +1103,7 @@ namespace yy {
     break;
 
   case 45:
-#line 341 "binary.yy" // lalr1.cc:859
+#line 329 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = yystack_[1].value.as< Node > ();
   }
@@ -1111,7 +1111,7 @@ namespace yy {
     break;
 
   case 46:
-#line 344 "binary.yy" // lalr1.cc:859
+#line 332 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();
   }
@@ -1119,7 +1119,7 @@ namespace yy {
     break;
 
   case 47:
-#line 349 "binary.yy" // lalr1.cc:859
+#line 337 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("tableconstructor", "");
 }
@@ -1127,7 +1127,7 @@ namespace yy {
     break;
 
   case 48:
-#line 352 "binary.yy" // lalr1.cc:859
+#line 340 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = yystack_[1].value.as< Node > ();
 }
@@ -1135,7 +1135,7 @@ namespace yy {
     break;
 
   case 49:
-#line 357 "binary.yy" // lalr1.cc:859
+#line 345 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("fieldlist", "");
   yylhs.value.as< Node > ().children.push_back(yystack_[0].value.as< Node > ());
@@ -1145,7 +1145,7 @@ namespace yy {
     break;
 
   case 50:
-#line 362 "binary.yy" // lalr1.cc:859
+#line 350 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = fieldListTemp;
   yylhs.value.as< Node > ().children.push_back(yystack_[0].value.as< Node > ());
@@ -1156,7 +1156,7 @@ namespace yy {
     break;
 
   case 51:
-#line 368 "binary.yy" // lalr1.cc:859
+#line 356 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = fieldListTemp;
   yylhs.value.as< Node > ().children.push_back(yystack_[1].value.as< Node > ());
@@ -1166,7 +1166,7 @@ namespace yy {
     break;
 
   case 54:
-#line 377 "binary.yy" // lalr1.cc:859
+#line 365 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("assignment", yystack_[1].value.as< std::string > ());
   yylhs.value.as< Node > ().children.push_back(yystack_[3].value.as< Node > ());
@@ -1176,7 +1176,7 @@ namespace yy {
     break;
 
   case 55:
-#line 381 "binary.yy" // lalr1.cc:859
+#line 369 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("assignment", yystack_[1].value.as< std::string > ());
   yylhs.value.as< Node > ().children.push_back(yystack_[2].value.as< Node > ());
@@ -1186,7 +1186,7 @@ namespace yy {
     break;
 
   case 56:
-#line 385 "binary.yy" // lalr1.cc:859
+#line 373 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();
 }
@@ -1194,7 +1194,7 @@ namespace yy {
     break;
 
   case 57:
-#line 390 "binary.yy" // lalr1.cc:859
+#line 378 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("varlist", "");
   yylhs.value.as< Node > ().children.push_back(yystack_[0].value.as< Node > ());
@@ -1204,7 +1204,7 @@ namespace yy {
     break;
 
   case 58:
-#line 395 "binary.yy" // lalr1.cc:859
+#line 383 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = varListTemp;
   yylhs.value.as< Node > ().children.push_back(yystack_[0].value.as< Node > ());
@@ -1214,7 +1214,7 @@ namespace yy {
     break;
 
   case 59:
-#line 402 "binary.yy" // lalr1.cc:859
+#line 390 "binary.yy" // lalr1.cc:859
     { 
   yylhs.value.as< Node > () = Node("string", yystack_[0].value.as< std::string > ());
   }
@@ -1222,7 +1222,7 @@ namespace yy {
     break;
 
   case 60:
-#line 407 "binary.yy" // lalr1.cc:859
+#line 395 "binary.yy" // lalr1.cc:859
     { 
   yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();
   }
@@ -1230,7 +1230,7 @@ namespace yy {
     break;
 
   case 61:
-#line 410 "binary.yy" // lalr1.cc:859
+#line 398 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = Node("var", yystack_[1].value.as< std::string > ());
     yylhs.value.as< Node > ().children.push_back(yystack_[2].value.as< Node > ());
@@ -1240,7 +1240,7 @@ namespace yy {
     break;
 
   case 62:
-#line 415 "binary.yy" // lalr1.cc:859
+#line 403 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = Node("index", "");
     yylhs.value.as< Node > ().children.push_back(yystack_[3].value.as< Node > ());
@@ -1250,7 +1250,7 @@ namespace yy {
     break;
 
   case 63:
-#line 422 "binary.yy" // lalr1.cc:859
+#line 410 "binary.yy" // lalr1.cc:859
     { 
   yylhs.value.as< Node > () = yystack_[0].value.as< Node > (); 
   }
@@ -1258,7 +1258,7 @@ namespace yy {
     break;
 
   case 64:
-#line 425 "binary.yy" // lalr1.cc:859
+#line 413 "binary.yy" // lalr1.cc:859
     { 
     yylhs.value.as< Node > () = yystack_[0].value.as< Node > (); 
   }
@@ -1266,7 +1266,7 @@ namespace yy {
     break;
 
   case 65:
-#line 428 "binary.yy" // lalr1.cc:859
+#line 416 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();
   }
@@ -1274,7 +1274,7 @@ namespace yy {
     break;
 
   case 66:
-#line 431 "binary.yy" // lalr1.cc:859
+#line 419 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();
   }
@@ -1282,7 +1282,7 @@ namespace yy {
     break;
 
   case 67:
-#line 434 "binary.yy" // lalr1.cc:859
+#line 422 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = Node("binop", yystack_[1].value.as< std::string > ()); 
     yylhs.value.as< Node > ().children.push_back(yystack_[2].value.as< Node > ()); 
@@ -1292,7 +1292,7 @@ namespace yy {
     break;
 
   case 68:
-#line 439 "binary.yy" // lalr1.cc:859
+#line 427 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = Node("binop", yystack_[1].value.as< std::string > ()); 
     yylhs.value.as< Node > ().children.push_back(yystack_[2].value.as< Node > ()); 
@@ -1302,7 +1302,7 @@ namespace yy {
     break;
 
   case 69:
-#line 444 "binary.yy" // lalr1.cc:859
+#line 432 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = Node("binop", yystack_[1].value.as< std::string > ()); 
     yylhs.value.as< Node > ().children.push_back(yystack_[2].value.as< Node > ()); 
@@ -1312,7 +1312,7 @@ namespace yy {
     break;
 
   case 70:
-#line 449 "binary.yy" // lalr1.cc:859
+#line 437 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();
   }
@@ -1320,7 +1320,7 @@ namespace yy {
     break;
 
   case 71:
-#line 454 "binary.yy" // lalr1.cc:859
+#line 442 "binary.yy" // lalr1.cc:859
     { 
     yylhs.value.as< Node > () = Node("binop", yystack_[1].value.as< std::string > ()); 
     yylhs.value.as< Node > ().children.push_back(yystack_[2].value.as< Node > ()); 
@@ -1330,7 +1330,7 @@ namespace yy {
     break;
 
   case 72:
-#line 459 "binary.yy" // lalr1.cc:859
+#line 447 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = Node("binop", yystack_[1].value.as< std::string > ()); 
     yylhs.value.as< Node > ().children.push_back(yystack_[2].value.as< Node > ()); 
@@ -1340,7 +1340,7 @@ namespace yy {
     break;
 
   case 73:
-#line 464 "binary.yy" // lalr1.cc:859
+#line 452 "binary.yy" // lalr1.cc:859
     { 
     yylhs.value.as< Node > () = yystack_[0].value.as< Node > (); 
   }
@@ -1348,7 +1348,7 @@ namespace yy {
     break;
 
   case 74:
-#line 468 "binary.yy" // lalr1.cc:859
+#line 456 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("binop", yystack_[1].value.as< std::string > ());
   yylhs.value.as< Node > ().children.push_back(yystack_[2].value.as< Node > ()); 
@@ -1358,7 +1358,7 @@ namespace yy {
     break;
 
   case 75:
-#line 473 "binary.yy" // lalr1.cc:859
+#line 461 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("binop", yystack_[1].value.as< std::string > ());
   yylhs.value.as< Node > ().children.push_back(yystack_[2].value.as< Node > ()); 
@@ -1368,7 +1368,7 @@ namespace yy {
     break;
 
   case 76:
-#line 478 "binary.yy" // lalr1.cc:859
+#line 466 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("binop", yystack_[1].value.as< std::string > ());
   yylhs.value.as< Node > ().children.push_back(yystack_[2].value.as< Node > ()); 
@@ -1378,7 +1378,7 @@ namespace yy {
     break;
 
   case 77:
-#line 483 "binary.yy" // lalr1.cc:859
+#line 471 "binary.yy" // lalr1.cc:859
     { 
     yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();
     }
@@ -1386,13 +1386,13 @@ namespace yy {
     break;
 
   case 78:
-#line 487 "binary.yy" // lalr1.cc:859
+#line 475 "binary.yy" // lalr1.cc:859
     { yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();}
 #line 1392 "binary.tab.cc" // lalr1.cc:859
     break;
 
   case 79:
-#line 488 "binary.yy" // lalr1.cc:859
+#line 476 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = Node("binop", yystack_[1].value.as< std::string > ());
     yylhs.value.as< Node > ().children.push_back(yystack_[2].value.as< Node > ());
@@ -1402,7 +1402,7 @@ namespace yy {
     break;
 
   case 80:
-#line 493 "binary.yy" // lalr1.cc:859
+#line 481 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = Node("binop", yystack_[1].value.as< std::string > ());
     yylhs.value.as< Node > ().children.push_back(yystack_[2].value.as< Node > ());
@@ -1412,7 +1412,7 @@ namespace yy {
     break;
 
   case 81:
-#line 500 "binary.yy" // lalr1.cc:859
+#line 488 "binary.yy" // lalr1.cc:859
     { 
   yylhs.value.as< Node > () = yystack_[0].value.as< Node > (); 
   }
@@ -1420,7 +1420,7 @@ namespace yy {
     break;
 
   case 82:
-#line 503 "binary.yy" // lalr1.cc:859
+#line 491 "binary.yy" // lalr1.cc:859
     { 
     yylhs.value.as< Node > () = Node("unary", yystack_[1].value.as< std::string > ()); 
     yylhs.value.as< Node > ().children.push_back(yystack_[0].value.as< Node > ());
@@ -1429,7 +1429,7 @@ namespace yy {
     break;
 
   case 83:
-#line 507 "binary.yy" // lalr1.cc:859
+#line 495 "binary.yy" // lalr1.cc:859
     {
     yylhs.value.as< Node > () = Node("unary", yystack_[1].value.as< std::string > ());
     yylhs.value.as< Node > ().children.push_back(yystack_[0].value.as< Node > ());
@@ -1438,25 +1438,25 @@ namespace yy {
     break;
 
   case 84:
-#line 511 "binary.yy" // lalr1.cc:859
+#line 499 "binary.yy" // lalr1.cc:859
     { yylhs.value.as< Node > () = yystack_[0].value.as< Node > ();}
 #line 1444 "binary.tab.cc" // lalr1.cc:859
     break;
 
   case 85:
-#line 514 "binary.yy" // lalr1.cc:859
+#line 502 "binary.yy" // lalr1.cc:859
     { yylhs.value.as< Node > () = Node("int", yystack_[0].value.as< std::string > ());}
 #line 1450 "binary.tab.cc" // lalr1.cc:859
     break;
 
   case 86:
-#line 515 "binary.yy" // lalr1.cc:859
+#line 503 "binary.yy" // lalr1.cc:859
     { yylhs.value.as< Node > () = Node("float", yystack_[0].value.as< std::string > ());}
 #line 1456 "binary.tab.cc" // lalr1.cc:859
     break;
 
   case 87:
-#line 518 "binary.yy" // lalr1.cc:859
+#line 506 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("boolean", yystack_[0].value.as< std::string > ());
 }
@@ -1464,7 +1464,7 @@ namespace yy {
     break;
 
   case 88:
-#line 521 "binary.yy" // lalr1.cc:859
+#line 509 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("boolean", yystack_[0].value.as< std::string > ());
 }
@@ -1472,7 +1472,7 @@ namespace yy {
     break;
 
   case 89:
-#line 526 "binary.yy" // lalr1.cc:859
+#line 514 "binary.yy" // lalr1.cc:859
     {
   yylhs.value.as< Node > () = Node("name", yystack_[0].value.as< std::string > ());
 }
@@ -1884,15 +1884,15 @@ namespace yy {
   const unsigned short int
   parser::yyrline_[] =
   {
-       0,   106,   106,   111,   125,   128,   132,   135,   140,   143,
-     147,   152,   157,   164,   169,   172,   175,   178,   181,   188,
-     192,   199,   202,   206,   211,   215,   221,   224,   228,   234,
-     241,   250,   263,   268,   274,   281,   289,   294,   302,   308,
-     315,   319,   325,   330,   338,   341,   344,   349,   352,   357,
-     362,   368,   375,   375,   377,   381,   385,   390,   395,   402,
-     407,   410,   415,   422,   425,   428,   431,   434,   439,   444,
-     449,   454,   459,   464,   468,   473,   478,   483,   487,   488,
-     493,   500,   503,   507,   511,   514,   515,   518,   521,   526
+       0,   106,   106,   111,   118,   121,   125,   128,   133,   136,
+     140,   145,   150,   157,   162,   165,   168,   171,   174,   181,
+     185,   192,   194,   197,   201,   205,   211,   213,   216,   222,
+     229,   238,   251,   256,   262,   269,   277,   282,   290,   296,
+     303,   307,   313,   318,   326,   329,   332,   337,   340,   345,
+     350,   356,   363,   363,   365,   369,   373,   378,   383,   390,
+     395,   398,   403,   410,   413,   416,   419,   422,   427,   432,
+     437,   442,   447,   452,   456,   461,   466,   471,   475,   476,
+     481,   488,   491,   495,   499,   502,   503,   506,   509,   514
   };
 
   // Print the state stack on the debug stream.
@@ -1928,4 +1928,4 @@ namespace yy {
 
 } // yy
 #line 1931 "binary.tab.cc" // lalr1.cc:1167
-#line 530 "binary.yy" // lalr1.cc:1168
+#line 518 "binary.yy" // lalr1.cc:1168

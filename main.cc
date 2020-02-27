@@ -3,6 +3,7 @@
 #include "binary.tab.hh"
 extern unsigned int total;
 extern Node root;
+extern FILE* yyin;
 void yy::parser::error(std::string const&err)
 {
     root.dump();
@@ -11,6 +12,7 @@ void yy::parser::error(std::string const&err)
 
 int main(int argc, char **argv)
 {
+  yyin = fopen(argv[1], "r");
   std::ifstream t(argv[1]);
   std::stringstream buffer;
   buffer << "label=<";

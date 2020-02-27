@@ -9,7 +9,7 @@ fi
 for (( it = 1; it <= $COUNT; it++ ))
 do
     echo $it
-    make && cat testcases/testcase_$it.lua | ./parser "testcases/testcase_$it.lua"> /dev/null
+    make && ./int "testcases/testcase_$it.lua" > /dev/null
     dot -T pdf source.dot -o testcases_results/tree_$it.pdf
     google-chrome testcases_results/tree_$it.pdf
 done
